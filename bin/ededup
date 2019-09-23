@@ -2,15 +2,19 @@
 
 jscpd --ignore "**/*.min.js,**/*.map,./node_modules/**,./dist/**" --reporters html --silent --output dedup-report "$@"
 
-echo "var codeLinesRegex = /\[([1-9]+).[1-9]+\s.\s([1-9]+).[1-9]+\].+\[([1-9]+).[1-9]+\s.\s([1-9]+).[1-9]+\]/gm; \
-var nodes = document.querySelectorAll('div'); \
-for(var nodei in nodes) { \
-    var node = nodes[nodei]; \
-    var match = codeLinesRegex.exec(node.innerHTML); \
-    var codeLinesAmount = ((match[2] - match[1]) + (match[4] - match[3]))/2; \
-    node.innerHTML = node.innerHTML + ' - ' + codeLinesAmount + ' lines of code duplicated'; \
-}" > ./dedup-report/jscpd-report.js
-sed -i -e '\$a<script type=\"text/javascript\" src=\"./dedup-report/jscpd-report.js\"></script> ' ./dedup-report/jscpd-report.html
+echo " \
+    var codeLinesRegex = /\[([0-9]+).[0-9]+\s.\s([0-9]+).[0-9]+\].+\[([0-9]+).[0-9]+\s.\s([0-9]+).[0-9]+\]/gm; \
+    var nodes = document.querySelectorAll('.clone-title'); \
+    for(var nodei in nodes) { \
+        var node = nodes[nodei]; \
+        var match = codeLinesRegex.exec(node.innerHTML); \
+        if(match && match[1] && match[4]) { \
+            var codeLinesAmount = ((match[2] - match[1]) + (match[4] - match[3]))/2; \
+            node.innerHTML = node.innerHTML + ' - ' + codeLinesAmount + '<br/> lines of code duplicated'; \
+        } \
+    } \
+" > ./dedup-report/jscpd-report.js
+echo "<script type=\"text/javascript\" src=\"./jscpd-report.js\"></script> " >> ./dedup-report/jscpd-report.html
 
 
 start ./dedup-report/jscpd-report.html || ./dedup-report/jscpd-report.html
