@@ -30,7 +30,7 @@ echo " \
 echo "<script type=\"text/javascript\" src=\"./jscpd-report.js\"></script> " >> ./dedup-report/jscpd-report.html
 
 
-start ./dedup-report/jscpd-report.html || ./dedup-report/jscpd-report.html
+start ./dedup-report/jscpd-report.html || ./dedup-report/jscpd-report.html || (alias chrome="open -a \"Google Chrome\" && chrome ./dedup-report/jscpd-report.html) || open ./dedup-report/jscpd-report.html || xdg-open ./dedup-report/jscpd-report.html || cygstart ./dedup-report/jscpd-report.html
 
 ret=$?
 exit $ret
