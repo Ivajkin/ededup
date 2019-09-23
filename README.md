@@ -39,3 +39,9 @@ and add ```"ededup": "^1.0.7"``` devDependency then.
 
 License is in LICENSE file. 
 
+## Known issues
+[ededup-issue-001] you should probably add ".jscpd" to .gitignore file when you use dedup
+
+# Plans
+
+Todo: fix [ededup-issue-001] by changing arguments supplied or something like that
