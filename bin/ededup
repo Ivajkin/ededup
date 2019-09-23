@@ -1,5 +1,5 @@
 #!/bin/sh
 
-jscpd --reporters html --output dedup-report "$@" && start ./dedup-report/jscpd-report.html
+jscpd --ignore "**/*.min.js,**/*.map,./node_modules/**" --reporters html --silent --output dedup-report "$@" && start ./dedup-report/jscpd-report.html
 ret=$?
 exit $ret
