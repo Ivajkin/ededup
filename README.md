@@ -32,3 +32,10 @@ and add ```"ededup": "^1.0.7"``` devDependency then.
 ## Use
 
 ```ededup --path SOMEPATH_TO_ANALYSE```
+
+# Notes
+
+```npm list -g ededup || npm i -g ededup``` is to install in case it is not installed yet. Not updates ededup even if never version available.
+
+License is in LICENSE file. 
+
