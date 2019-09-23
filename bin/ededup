@@ -1,5 +1,19 @@
 #!/bin/sh
 
-jscpd --ignore "**/*.min.js,**/*.map,./node_modules/**,./dist/**" --reporters html --silent --output dedup-report "$@" && (start ./dedup-report/jscpd-report.html || ./dedup-report/jscpd-report.html)
+jscpd --ignore "**/*.min.js,**/*.map,./node_modules/**,./dist/**" --reporters html --silent --output dedup-report "$@"
+sed -i '31i\<script type=\"text/javascript\" src=\"./dedup-report/jscpd-report.js\"></script> ' ./dedup-report/jscpd-report.html
+
+echo "var codeLinesRegex = /\[([1-9]+).[1-9]+\s.\s([1-9]+).[1-9]+\].+\[([1-9]+).[1-9]+\s.\s([1-9]+).[1-9]+\]/gm; \
+var nodes = document.querySelectorAll('div'); \
+for(var nodei in nodes) { \
+    var node = nodes[nodei]; \
+    var match = codeLinesRegex.exec(node.innerHTML); \
+    var codeLinesAmount = ((match[2] - match[1]) + (match[4] - match[3]))/2; \
+    node.innerHTML = node.innerHTML + ' - ' + codeLinesAmount + ' lines of code duplicated'; \
+}" > ./dedup-report/jscpd-report.js
+
+
+start ./dedup-report/jscpd-report.html || ./dedup-report/jscpd-report.html
+
 ret=$?
 exit $ret
