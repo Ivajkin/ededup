@@ -10,7 +10,7 @@ for(var nodei in nodes) { \
     var codeLinesAmount = ((match[2] - match[1]) + (match[4] - match[3]))/2; \
     node.innerHTML = node.innerHTML + ' - ' + codeLinesAmount + ' lines of code duplicated'; \
 }" > ./dedup-report/jscpd-report.js
-sed -e '\$a<script type=\"text/javascript\" src=\"./dedup-report/jscpd-report.js\"></script> ' ./dedup-report/jscpd-report.html || exit 0;
+sed -i -e '\$a<script type=\"text/javascript\" src=\"./dedup-report/jscpd-report.js\"></script> ' ./dedup-report/jscpd-report.html
 
 
 start ./dedup-report/jscpd-report.html || ./dedup-report/jscpd-report.html
