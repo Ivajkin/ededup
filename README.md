@@ -50,3 +50,4 @@ License is in LICENSE file.
 2. Autoadd to scan ignore paths from current directory's .gitignore file
 3. Sort output by priorities (by lines of code duplicated)
 4. Add library usage analytics with all types of data like what exacly was analysed to make sure service will become better and better based on data
+5. Move to React or Angular (which will be better)
