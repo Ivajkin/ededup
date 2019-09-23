@@ -2,7 +2,7 @@
   "name": "ededup",
   "version": "1.0.0",
   "license": "ededup",
-  "description": "Easy to use Copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
+  "description": "Easy to use copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
   "main": "ededup.js",
   "engines": {
     "node": ">=8.9"
@@ -36,7 +36,8 @@
     "all": "run-s reset test cov:check doc:html",
     "prepare-release": "run-s all version doc:publish",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "preinstall": "npm i -g jscpd"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
