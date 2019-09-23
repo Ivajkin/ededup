@@ -44,4 +44,7 @@ License is in LICENSE file.
 
 # Plans
 
-Todo: fix [ededup-issue-001] by changing arguments supplied or something like that
+## Todo
+
+1. fix [ededup-issue-001] by changing arguments supplied or something like that
+2. Autoadd to scan ignore paths from current directory's .gitignore file
