@@ -19,4 +19,4 @@ or add to package.json scripts
 
 ```"dedup-local": "./ededup/bin/ededup --path SOMEPATH_TO_ANALYSE",```
 
-and add ```"ededup": "1.0.6"``` devDependency then.
+and add ```"ededup": "^1.0.7"``` devDependency then.
