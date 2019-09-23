@@ -37,7 +37,7 @@
     "prepare-release": "run-s all version doc:publish",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
-    "preinstall": "npm i -g jscpd"
+    "preinstall": "(npm list -g jscpd || npm i -g jscpd) && npm i -g jscpd"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
