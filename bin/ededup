@@ -5,11 +5,6 @@ case `uname` in
     *CYGWIN*) basedir=`cygpath -w "$basedir"`;;
 esac
 
-if [ -x "$basedir/node" ]; then
-  "$basedir/node"  "jscpd --reporters html --output dedup-report && start ./dedup-report/jscpd-report.html" "$@"
-  ret=$?
-else
-  node  "jscpd --reporters html --output dedup-report && start ./dedup-report/jscpd-report.html" "$@"
-  ret=$?
-fi
+"jscpd --reporters html --output dedup-report && start ./dedup-report/jscpd-report.html" "$@"
+ret=$?
 exit $ret
