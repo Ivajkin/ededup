@@ -1,0 +1,114 @@
+{
+  "name": "ededup",
+  "version": "1.0.0",
+  "license": "ededup",
+  "description": "Easy to use Copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
+  "main": "ededup.js",
+  "engines": {
+    "node": ">=8.9"
+  },
+  "bin": {
+    "ededup": "jscpd --path App --reporters html --output dedup-report && start ./dedup-report/jscpd-report.html"
+  },
+  "scripts": {
+    "info": "npm-scripts-info",
+    "build": "run-s clean && run-p build:*",
+    "build:main": "tsc -p tsconfig.json",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "fix:tslint": "tslint --fix --project .",
+    "test": "run-s build test:*",
+    "test:lint": "tslint --project . && prettier \"src/**/*.ts\" --write",
+    "test:cpd": "ts-node ./src/cli.ts src",
+    "test:unit": "nyc --silent ava",
+    "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
+    "cov": "run-s build test:unit cov:html && opn coverage/index.html",
+    "cov:html": "nyc report --reporter=html",
+    "cov:send": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "cov:check": "nyc report && nyc check-coverage --lines 73 --functions 57 --branches 56",
+    "doc": "run-s doc:html && opn build/docs/index.html",
+    "doc:html": "typedoc src/ --target ES6 --mode file --out build/docs --ignoreCompilerErrors",
+    "doc:json": "typedoc src/ --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
+    "version": "standard-version",
+    "reset": "git clean -dfx && git reset --hard && npm i",
+    "clean": "trash build test",
+    "all": "run-s reset test cov:check doc:html",
+    "prepare-release": "run-s all version doc:publish",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "scripts-info": {
+    "info": "Display information about the package scripts",
+    "build": "Clean and rebuild the project",
+    "fix": "Try to automatically fix any linting problems",
+    "test": "Lint and unit test the project",
+    "watch": "Watch and rebuild the project on save, then rerun relevant tests",
+    "cov": "Rebuild, run tests, then create and open the coverage report",
+    "doc": "Generate HTML API documentation and open it in a browser",
+    "doc:json": "Generate API documentation in typedoc JSON format",
+    "version": "Bump package.json version, update CHANGELOG.md, tag release",
+    "reset": "Delete all untracked files and reset the repo to the last commit",
+    "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
+  },
+  "author": "Tim Ivaikin",
+  "dependencies": {
+    "jscpd": "^2.0.15"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "ededup"
+    ]
+  },
+  "keywords": [
+    "ededup",
+    "code-quality",
+    "code-smells",
+    "duplication",
+    "cpd",
+    "pmd",
+    "analyze",
+    "quality",
+    "copy-paste",
+    "clone",
+    "copy",
+    "paste",
+    "javascript",
+    "coffeescript",
+    "typescript",
+    "php",
+    "sass",
+    "css",
+    "python",
+    "powershell",
+    "kotlin",
+    "ruby",
+    "java",
+    "go",
+    "c#",
+    "c++",
+    "objective-c",
+    "c",
+    "scala",
+    "lua",
+    "twig",
+    "xml",
+    "xsl",
+    "html",
+    "yaml",
+    "swift",
+    "perl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ivajkin/ededup.git"
+  },
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "targets": [
+      "node10"
+    ]
+  },
+  "readmeFilename": "README.md",
+  "preferGlobal": true
+}
