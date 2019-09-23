@@ -1,6 +1,6 @@
 {
   "name": "ededup",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "ededup",
   "description": "Easy to use copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
   "main": "ededup.js",
@@ -8,7 +8,7 @@
     "node": ">=8.9"
   },
   "bin": {
-    "ededup": "jscpd --path App --reporters html --output dedup-report && start ./dedup-report/jscpd-report.html"
+    "ededup": "./bin/ededup"
   },
   "scripts": {
     "info": "npm-scripts-info",
