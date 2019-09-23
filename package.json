@@ -1,6 +1,6 @@
 {
   "name": "ededup",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "license": "ededup",
   "description": "Easy to use copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
   "main": "ededup.js",
@@ -13,7 +13,7 @@
   "scripts": {
     "info": "npm-scripts-info",
     "version": "standard-version",
-    "preinstall": "(npm list -g jscpd || npm i -g jscpd) && npm i -g jscpd"
+    "preinstall": "npm list -g jscpd || npm i -g jscpd"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
