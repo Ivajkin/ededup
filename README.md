@@ -48,3 +48,4 @@ License is in LICENSE file.
 
 1. fix [ededup-issue-001] by changing arguments supplied or something like that
 2. Autoadd to scan ignore paths from current directory's .gitignore file
+3. Sort output by priorities (by lines of code duplicated)

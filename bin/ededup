@@ -10,7 +10,7 @@ echo " \
         var match = codeLinesRegex.exec(node.innerHTML); \
         if(match && match[1] && match[4]) { \
             var codeLinesAmount = ((match[2] - match[1]) + (match[4] - match[3]))/2; \
-            node.innerHTML = node.innerHTML + ' - ' + codeLinesAmount + '<br/> lines of code duplicated'; \
+            node.innerHTML = node.innerHTML + '<br/> - ' + codeLinesAmount + ' lines of code duplicated'; \
         } \
     } \
 " > ./dedup-report/jscpd-report.js
