@@ -1,6 +1,6 @@
 {
   "name": "ededup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ededup",
   "description": "Easy to use copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
   "main": "ededup.js",
@@ -17,57 +17,12 @@
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
-    "build": "Clean and rebuild the project",
-    "fix": "Try to automatically fix any linting problems",
-    "test": "Lint and unit test the project",
-    "watch": "Watch and rebuild the project on save, then rerun relevant tests",
-    "cov": "Rebuild, run tests, then create and open the coverage report",
-    "doc": "Generate HTML API documentation and open it in a browser",
-    "doc:json": "Generate API documentation in typedoc JSON format",
     "version": "Bump package.json version, update CHANGELOG.md, tag release",
-    "reset": "Delete all untracked files and reset the repo to the last commit",
-    "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
+    "preinstall": "Installs global dependency if needed"
   },
   "author": "Tim Ivaikin",
   "dependencies": {
     "jscpd": "^2.0.15"
-  },
-  "devDependencies": {
-    "async": "^2.1.4",
-    "benchmark": "^2.1.3",
-    "chalk": "^1.1.3",
-    "cheerio": "^0.22.0",
-    "codecov.io": "~0.1.6",
-    "coveralls": "^2.11.15",
-    "curl-amd": "~0.8.12",
-    "docdown": "~0.7.2",
-    "dojo": "^1.12.1",
-    "ecstatic": "^2.1.0",
-    "eslint": "^6.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "esm": "^3.1.3",
-    "fs-extra": "~1.0.0",
-    "glob": "^7.1.1",
-    "istanbul": "0.4.5",
-    "jquery": "^3.1.1",
-    "lodash": "4.17.11",
-    "lodash-doc-globals": "^0.1.1",
-    "markdown-doctest": "^0.9.1",
-    "mocha": "^5.2.0",
-    "optional-dev-dependency": "^2.0.0",
-    "platform": "^1.3.3",
-    "qunit-extras": "^3.0.0",
-    "qunitjs": "^2.1.0",
-    "request": "^2.79.0",
-    "requirejs": "^2.3.2",
-    "sauce-tunnel": "^2.5.0",
-    "uglify-js": "2.7.5",
-    "webpack": "^1.14.0"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "ededup"
-    ]
   },
   "keywords": [
     "ededup",
