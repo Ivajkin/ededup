@@ -1,6 +1,6 @@
 {
   "name": "ededup",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "license": "ededup",
   "description": "Easy to use copy/paste detector for programming code, support JavaScript, CoffeeScript, PHP, Ruby, Python, Less, Go, Java, Yaml, C#, C++, C, Puppet, Twig languages",
   "main": "ededup.js",

@@ -23,7 +23,7 @@ echo " \
     docReady(function() { \
         var controls = document.getElementsByClassName('controls')[0]; \
         var nodes = document.querySelectorAll('.clone-title'); \
-        controls.innerHTML = '<input style=\"margin-right: 8px;\" id=\"filter\" onchange=\"Filter()\" placeholder=\"Filter\"></input>' + controls.innerHTML; \
+        controls.innerHTML = '<input style=\"margin-right: 8px;\" id=\"filter\" oninput=\"Filter()\" placeholder=\"Filter\"></input>' + controls.innerHTML; \
         for(var nodei in nodes) { \
             var node = nodes[nodei]; \
             var match = codeLinesRegex.exec(node.innerHTML); \
