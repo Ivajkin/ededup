@@ -34,34 +34,36 @@ echo " \
                 var codeLinesAmount = (codeLinesAmount1 + codeLinesAmount2) / 2; \
                 node.innerHTML = node.innerHTML + '<br/> - ' + codeLinesAmount + ' lines of code duplicated'; \
             } \
- \
-            var elements = document.querySelectorAll('.clone'); \
- \
-            //Create our function generator \
-            function sortBy(regex){ \
-            return function(a, b){ \
-                var filter_a = parseFloat( a.textContent.match(regex)[1] ); \
-                var filter_b = parseFloat( b.textContent.match(regex)[1] ); \
-                //debugger; \
-                return filter_a > filter_b \
-                ? -1 \
-                : (filter_a > filter_b ? 1 : 0); \
-            } \
-            } \
- \
-            function sortDom(filter){ \
-            //Transform our nodeList into array and apply sort function \
-            return [].map.call(elements, function(elm){ \
-                return elm; \
-            }).sort(sortBy(filter)) \
-            } \
- \
-            //Sort by left style property \
-            var sorted = sortDom(/.*-\s([0-9\.]+) lines of code duplicated/); \
-            console.log(sorted); \
-            var parentContainer = document.querySelector('.clones.collapsed'); \
-            sorted.map(x => parentContainer.insertBefore(x, null)); \
         } \
+ \
+ setTimeout(() => {\
+        var elements = document.querySelectorAll('.clone'); \
+\
+        //Create our function generator \
+        function sortBy(regex){ \
+        return function(a, b){ \
+            var filter_a = parseFloat( a.textContent.match(regex)[1] ); \
+            var filter_b = parseFloat( b.textContent.match(regex)[1] ); \
+            //debugger; \
+            return filter_a > filter_b \
+            ? -1 \
+            : (filter_a > filter_b ? 1 : 0); \
+        } \
+        } \
+\
+        function sortDom(filter){ \
+        //Transform our nodeList into array and apply sort function \
+        return [].map.call(elements, function(elm){ \
+            return elm; \
+        }).sort(sortBy(filter)) \
+        } \
+\
+        //Sort by left style property \
+        var sorted = sortDom(/.*-\s([0-9\.]+) lines of code duplicated/); \
+        console.log(sorted); \
+        var parentContainer = document.querySelector('.clones.collapsed'); \
+        sorted.map(x => parentContainer.insertBefore(x, null)); \
+,2000);\
     }); \
 " > ./dedup-report/jscpd-report.js
 echo "<script type=\"text/javascript\" src=\"./jscpd-report.js\"></script> " >> ./dedup-report/jscpd-report.html
@@ -73,29 +75,29 @@ ret=$?
 exit $ret
 
 
-var elements = document.querySelectorAll('.clone');
+# var elements = document.querySelectorAll('.clone');
 
-//Create our function generator
-function sortBy(regex){
-  return function(a, b){
-    var filter_a = parseFloat( a.textContent.match(regex)[1] );
-    var filter_b = parseFloat( b.textContent.match(regex)[1] );
-    //debugger;
-    return filter_a > filter_b
-    ? -1
-    : (filter_a > filter_b ? 1 : 0);
-  }
-}
+# //Create our function generator
+# function sortBy(regex){
+#   return function(a, b){
+#     var filter_a = parseFloat( a.textContent.match(regex)[1] );
+#     var filter_b = parseFloat( b.textContent.match(regex)[1] );
+#     //debugger;
+#     return filter_a > filter_b
+#     ? -1
+#     : (filter_a > filter_b ? 1 : 0);
+#   }
+# }
 
-function sortDom(filter){
-  //Transform our nodeList into array and apply sort function
-  return [].map.call(elements, function(elm){
-    return elm;
-  }).sort(sortBy(filter))
-}
+# function sortDom(filter){
+#   //Transform our nodeList into array and apply sort function
+#   return [].map.call(elements, function(elm){
+#     return elm;
+#   }).sort(sortBy(filter))
+# }
 
-//Sort by left style property
-var sorted = sortDom(/.*-\s([0-9\.]+) lines of code duplicated/);
-console.log(sorted);
-var parentContainer = document.querySelector('.clones.collapsed');
-sorted.map(x => parentContainer.insertBefore(x, null));
+# //Sort by left style property
+# var sorted = sortDom(/.*-\s([0-9\.]+) lines of code duplicated/);
+# console.log(sorted);
+# var parentContainer = document.querySelector('.clones.collapsed');
+# sorted.map(x => parentContainer.insertBefore(x, null));
