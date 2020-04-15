@@ -39,12 +39,12 @@ echo " \
  setTimeout(() => {\
         var elements = document.querySelectorAll('.clone'); \
 \
-        //Create our function generator \
+        /*Create our function generator*/ \
         function sortBy(regex){ \
         return function(a, b){ \
             var filter_a = parseFloat( a.textContent.match(regex)[1] ); \
             var filter_b = parseFloat( b.textContent.match(regex)[1] ); \
-            //debugger; \
+             \
             return filter_a > filter_b \
             ? -1 \
             : (filter_a > filter_b ? 1 : 0); \
@@ -52,13 +52,13 @@ echo " \
         } \
 \
         function sortDom(filter){ \
-        //Transform our nodeList into array and apply sort function \
+        /*Transform our nodeList into array and apply sort function */ \
         return [].map.call(elements, function(elm){ \
             return elm; \
         }).sort(sortBy(filter)) \
         } \
 \
-        //Sort by left style property \
+        /*Sort by left style property*/ \
         var sorted = sortDom(/.*-\s([0-9\.]+) lines of code duplicated/); \
         console.log(sorted); \
         var parentContainer = document.querySelector('.clones.collapsed'); \
