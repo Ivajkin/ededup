@@ -22,7 +22,7 @@
   },
   "author": "Tim Ivaikin",
   "dependencies": {
-    "jscpd": "^2.0.15"
+    "jscpd": "^3.3.1"
   },
   "keywords": [
     "ededup",
